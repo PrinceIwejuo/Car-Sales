@@ -1,6 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import {removeFeature} from './../actions/actions'
+
+
 
 const AddedFeature = props => {
+
+    const handleClick = () => {
+      props.removeFeature(props.feature)
+    }
+
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
@@ -9,5 +18,4 @@ const AddedFeature = props => {
     </li>
   );
 };
-
-export default AddedFeature;
+export default connect(null, {removeFeature})(AddedFeature);
